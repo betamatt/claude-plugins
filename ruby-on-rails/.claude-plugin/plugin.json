@@ -1,0 +1,10 @@
+{
+  "name": "ruby-on-rails",
+  "version": "1.0.0",
+  "description": "Professional Ruby on Rails development toolkit for production systems. Provides proactive expert agents, smart generators, and Rails 7+ best practices.",
+  "author": {
+    "name": "Claude Code Plugin",
+    "email": "plugins@claude.ai"
+  },
+  "keywords": ["rails", "ruby", "activerecord", "rspec", "hotwire", "turbo", "stimulus"]
+}

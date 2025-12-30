@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if this is a Ruby on Rails project by looking for a Gemfile containing 'rails'. If it is a Rails project, note the Rails version and any key gems (devise, sidekiq, rspec-rails, etc.). Set context that this is a Rails project so Rails-specific agents and skills will activate appropriately. Keep the response brief - just acknowledge Rails detection and version."
+          }
+        ]
+      }
+    ]
+  }
+}

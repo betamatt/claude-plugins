@@ -1,0 +1,10 @@
+{
+  "name": "claude-debugger",
+  "version": "1.0.0",
+  "description": "Flexible logging and debugging system for Claude Code plugins. Track skills, subagents, hooks, tools, commands, and MCP calls with configurable verbosity.",
+  "author": {
+    "name": "Matt",
+    "email": "matt@example.com"
+  },
+  "keywords": ["debugging", "logging", "observability", "development", "plugins"]
+}

@@ -1,0 +1,3 @@
+.claude/*.log
+.claude/debugger.yaml
+.claude/settings.local.json

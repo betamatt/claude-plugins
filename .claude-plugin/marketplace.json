@@ -1,0 +1,23 @@
+{
+  "name": "claude-plugins",
+  "owner": {
+    "name": "Matt",
+    "email": "matt@example.com"
+  },
+  "plugins": [
+    {
+      "name": "ruby-on-rails",
+      "source": "./ruby-on-rails",
+      "version": "1.0.0",
+      "description": "Professional Ruby on Rails development toolkit for production systems. Provides proactive expert agents, smart generators, and Rails 7+ best practices.",
+      "keywords": ["rails", "ruby", "activerecord", "rspec", "hotwire", "turbo", "stimulus"]
+    },
+    {
+      "name": "claude-debugger",
+      "source": "./claude-debugger",
+      "version": "1.0.0",
+      "description": "Flexible logging and debugging system for Claude Code plugins. Track skills, subagents, hooks, tools, commands, and MCP calls with configurable verbosity.",
+      "keywords": ["debugging", "logging", "observability", "development", "plugins"]
+    }
+  ]
+}

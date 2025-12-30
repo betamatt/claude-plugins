@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(plugin-dev:agent-development)",
+      "Skill(plugin-dev:command-development)",
+      "Skill(plugin-dev:plugin-structure)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
