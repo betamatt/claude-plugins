@@ -149,8 +149,9 @@ Structure feedback consistently:
 
 ### Reference Files
 
-For detailed patterns per review aspect, consult:
-- **`references/review-aspects.md`** - Deep dive into each of the 6 review aspects
+For detailed patterns and guidance, consult:
+- **`references/focus-areas.md`** - Canonical definitions of the 6 focus areas with priority factors
+- **`references/review-aspects.md`** - Deep dive into each review aspect with checklists
 
 ### Success Criteria
 

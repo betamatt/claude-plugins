@@ -1,0 +1,9 @@
+{
+  "hooks": [
+    {
+      "event": "Stop",
+      "type": "prompt",
+      "prompt": "If the conversation involved implementing a significant feature, fixing complex bugs, or making substantial code changes across multiple files, suggest running a code review. Say something like: 'Would you like me to run a code review on the changes? I can check for architecture, security, performance, quality, testing, and documentation issues.' Only suggest this for non-trivial changes - don't suggest for simple edits, typo fixes, or single-line changes."
+    }
+  ]
+}
