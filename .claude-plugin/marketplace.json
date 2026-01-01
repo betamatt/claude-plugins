@@ -1,8 +1,8 @@
 {
-  "name": "claude-plugins",
+  "name": "betamatt-claude-plugins",
   "owner": {
-    "name": "Matt",
-    "email": "matt@example.com"
+    "name": "Matt Griffin",
+    "email": "matt@griffinonline.org"
   },
   "plugins": [
     {
@@ -18,6 +18,13 @@
       "version": "1.0.0",
       "description": "Flexible logging and debugging system for Claude Code plugins. Track skills, subagents, hooks, tools, commands, and MCP calls with configurable verbosity.",
       "keywords": ["debugging", "logging", "observability", "development", "plugins"]
+    },
+    {
+      "name": "code-review",
+      "source": "./code-review",
+      "version": "0.1.0",
+      "description": "Comprehensive code review toolkit with parallel specialist agents covering architecture, quality, security, performance, testing, and documentation.",
+      "keywords": ["code-review", "analysis", "architecture", "security", "performance", "testing"]
     }
   ]
 }
