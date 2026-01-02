@@ -1,6 +1,6 @@
 {
   "name": "code-review",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Comprehensive code review toolkit with 6 parallel specialist agents covering architecture, code quality, security, performance, testing, and documentation",
   "author": {
     "name": "Claude Code Plugins",
