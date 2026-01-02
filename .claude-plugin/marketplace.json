@@ -22,7 +22,7 @@
     {
       "name": "code-review",
       "source": "./code-review",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "description": "Comprehensive code review toolkit with parallel specialist agents covering architecture, quality, security, performance, testing, and documentation.",
       "keywords": ["code-review", "analysis", "architecture", "security", "performance", "testing"]
     }
