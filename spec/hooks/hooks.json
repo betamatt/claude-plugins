@@ -1,0 +1,9 @@
+{
+  "hooks": [
+    {
+      "event": "SessionStart",
+      "type": "prompt",
+      "prompt": "Check if a specs/ directory exists in the project. If it does, briefly mention that specification-driven development commands are available (/spec:create, /spec:validate, /spec:decompose, /spec:execute, /spec:implement). Keep this mention concise - one sentence maximum."
+    }
+  ]
+}

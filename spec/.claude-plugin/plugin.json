@@ -1,0 +1,21 @@
+{
+  "name": "spec",
+  "version": "1.0.0",
+  "description": "Specification-driven development workflow with creation, validation, decomposition, execution, and automated review-fix loops",
+  "author": {
+    "name": "Matt Griffin",
+    "email": "matt@griffinonline.org"
+  },
+  "keywords": [
+    "specs",
+    "specifications",
+    "workflow",
+    "planning",
+    "implementation",
+    "task-management",
+    "stm",
+    "development",
+    "code-review",
+    "automation"
+  ]
+}

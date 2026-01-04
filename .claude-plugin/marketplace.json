@@ -25,6 +25,13 @@
       "version": "0.2.0",
       "description": "Comprehensive code review toolkit with parallel specialist agents covering architecture, quality, security, performance, testing, and documentation.",
       "keywords": ["code-review", "analysis", "architecture", "security", "performance", "testing"]
+    },
+    {
+      "name": "spec",
+      "source": "./spec",
+      "version": "1.0.0",
+      "description": "Specification-driven development workflow with creation, validation, decomposition, execution, and automated review-fix loops.",
+      "keywords": ["specs", "specifications", "workflow", "planning", "implementation", "task-management", "stm", "code-review", "automation"]
     }
   ]
 }
