@@ -1,6 +1,6 @@
 ---
 name: spec:execute
-description: Implement a validated specification by orchestrating concurrent agents
+description: Implement a validated specification with review-fix loops
 allowed-tools: Task, Read, TodoWrite, Grep, Glob, Bash(stm:*), Bash(jq:*)
 argument-hint: "<path-to-spec-file>"
 ---
@@ -50,44 +50,22 @@ Create tasks for each component in the specification
 
 For each task, follow this cycle:
 
-**Available Agents:**
-
-Use available specialized agents for implementation (e.g., testing-expert, typescript-expert, react-expert).
-
 #### Step 1: Implement
 
-Launch appropriate specialist agent:
+Implement the component directly, applying domain-specific best practices:
 
-```
-Task tool:
-- description: "Implement [component name]"
-- subagent_type: [choose specialist that matches the task]
-- prompt: |
-    First run: stm show [task-id]
-    This will give you the full task details and requirements.
-
-    Then implement the component based on those requirements.
-    Follow project code style and add error handling.
-    Report back when complete.
-```
+1. Run `stm show [task-id]` to get full task details
+2. Implement based on requirements, following project code style
+3. Add appropriate error handling
+4. Reference CLAUDE.md for project conventions
 
 #### Step 2: Write Tests
 
-Launch testing expert:
+Write comprehensive tests for the implemented component:
 
-```
-Task tool:
-- description: "Write tests for [component]"
-- subagent_type: testing-expert [or jest/vitest-testing-expert]
-- prompt: |
-    First run: stm show [task-id]
-
-    Write comprehensive tests for the implemented component.
-    Cover edge cases and aim for >80% coverage.
-    Report back when complete.
-```
-
-Then run tests to verify they pass.
+1. Cover edge cases and aim for >80% coverage
+2. Follow project testing patterns
+3. Run tests to verify they pass
 
 #### Step 3: Code Review with Fix Loop (Max 3 Iterations)
 
@@ -100,19 +78,11 @@ review_passed = false
 while iteration < 3 and not review_passed:
 
   # Run code review
-  Launch code-review-expert:
-  Task tool:
-  - description: "Review [component]"
-  - subagent_type: code-review-expert
-  - prompt: |
-      First run: stm show [task-id]
+  Review implementation for BOTH:
+  1. COMPLETENESS - Are all requirements from the task fully implemented?
+  2. QUALITY - Code quality, security, error handling, test coverage
 
-      Review implementation for BOTH:
-      1. COMPLETENESS - Are all requirements from the task fully implemented?
-      2. QUALITY - Code quality, security, error handling, test coverage
-
-      Categorize issues as: CRITICAL, IMPORTANT, or MINOR.
-      Report if implementation is COMPLETE or INCOMPLETE.
+  Categorize issues as: CRITICAL, IMPORTANT, or MINOR.
 
   # Parse review output
   Extract issues by severity:
@@ -124,28 +94,12 @@ while iteration < 3 and not review_passed:
     review_passed = true
     break
 
-  # Fix issues using issue-fixer agent
+  # Fix issues
   For each CRITICAL issue:
-    Launch issue-fixer agent:
-    Task tool:
-    - description: "Fix CRITICAL: [issue summary]"
-    - subagent_type: issue-fixer
-    - prompt: |
-        Fix this CRITICAL issue:
-        File: [file:line]
-        Issue: [description]
-        Suggested fix: [if provided]
+    Fix immediately - these block completion
 
   For each IMPORTANT issue:
-    Launch issue-fixer agent:
-    Task tool:
-    - description: "Fix IMPORTANT: [issue summary]"
-    - subagent_type: issue-fixer
-    - prompt: |
-        Fix this IMPORTANT issue:
-        File: [file:line]
-        Issue: [description]
-        Suggested fix: [if provided]
+    Fix before marking task done
 
   # Re-run tests after fixes
   Run test suite to verify fixes don't break anything
@@ -216,8 +170,8 @@ Implementation is complete when:
 
 ## If Issues Arise
 
-If any agent encounters problems:
+If problems are encountered:
 
 1. Identify the specific issue
-2. Launch appropriate specialist to resolve
+2. Apply relevant domain knowledge to resolve
 3. Or request user assistance if blocked

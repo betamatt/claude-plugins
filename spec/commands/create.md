@@ -36,10 +36,10 @@ After validating the problem from first principles, complete these technical che
 
 ### 1. Context Discovery Phase
 
-- Search existing codebase for similar features/specs using AgentTool
-- **Use specialized subagents** when research involves specific domains (TypeScript, React, testing, databases, etc.)
-- Match research requirements to expert domains for optimal analysis
-- Use general-purpose approach only when no specialized expert fits
+- Search existing codebase for similar features/specs using the Task tool with Explore agent
+- Apply domain-specific best practices when research involves specific domains (TypeScript, React, testing, databases, etc.)
+- Reference project-specific conventions from CLAUDE.md or similar documentation
+- Use the Explore agent sparingly for deep codebase analysis when needed
 - Identify potential conflicts or duplicates
 - Verify feature request is technically feasible
 - Document any missing prerequisites
@@ -174,7 +174,7 @@ Before marking complete:
 3. **Implementability Check**: Someone could build this from the spec
 4. **Quality Score**: Rate spec 1-10, only accept 8+
 
-Before writing, use AgentTool to search for:
+Before writing, search the codebase for:
 
 - Related existing features or code
 - Similar patterns in the codebase

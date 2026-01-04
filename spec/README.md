@@ -11,7 +11,7 @@ Specification-driven development workflow for Claude Code with creation, validat
 | `/spec:create <description>` | Generate comprehensive specification from feature/bugfix description |
 | `/spec:validate <spec-file>` | Analyze spec for completeness and detect overengineering |
 | `/spec:decompose <spec-file>` | Break spec into actionable tasks with STM/TodoWrite |
-| `/spec:execute <spec-file>` | Implement spec using orchestrated specialist agents |
+| `/spec:execute <spec-file>` | Implement spec with review-fix loops |
 | `/spec:implement <spec-file> [--pr]` | End-to-end: validate, decompose, execute with review loops |
 
 ### Agents
@@ -36,8 +36,8 @@ Specification-driven development workflow for Claude Code with creation, validat
 │   CREATE    │────▶│  VALIDATE   │────▶│  DECOMPOSE  │────▶│   EXECUTE   │
 │             │     │             │     │             │     │             │
 │ First       │     │ WHY/WHAT/   │     │ Task        │     │ Implement   │
-│ principles  │     │ HOW check   │     │ breakdown   │     │ with agents │
-│ analysis    │     │ YAGNI       │     │ STM/Todo    │     │ Test/Review │
+│ principles  │     │ HOW check   │     │ breakdown   │     │ Test/Review │
+│ analysis    │     │ YAGNI       │     │ STM/Todo    │     │ Fix Loop    │
 └─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
                                                                    │
                               Or use /spec:implement for all-in-one ◀┘
@@ -104,7 +104,7 @@ Creates:
 
 Orchestrates:
 
-- Specialist agents for each task
+- Implementation with domain-specific best practices
 - Testing and code review cycles
 - Atomic commits per completed task
 
@@ -173,7 +173,6 @@ Built-in session task tracking when STM is unavailable.
 
 - Claude Code CLI
 - Optional: STM (Session Task Manager) for persistent task tracking
-- Optional: Specialist agents (testing-expert, code-review-expert, etc.)
 
 ## License
 
