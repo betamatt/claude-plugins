@@ -1,0 +1,9 @@
+{
+  "name": "repo-mapper",
+  "version": "1.0.0",
+  "description": "AI-optimized repository mapping using Tree-sitter parsing and PageRank prioritization",
+  "author": {
+    "name": "Claude Code Plugins"
+  },
+  "keywords": ["repo-map", "codebase", "tree-sitter", "pagerank", "mcp"]
+}
