@@ -1,7 +1,7 @@
 ---
-name: execute
+name: spec:execute
 description: Implement a validated specification by orchestrating concurrent agents
-allowed-tools: Task, Read, TodoWrite, Grep, Glob, Bash(claudekit:status stm), Bash(stm:*), Bash(jq:*)
+allowed-tools: Task, Read, TodoWrite, Grep, Glob, Bash(stm:*), Bash(jq:*)
 argument-hint: "<path-to-spec-file>"
 ---
 
@@ -9,7 +9,7 @@ argument-hint: "<path-to-spec-file>"
 
 Implement the specification at: $ARGUMENTS
 
-!claudekit status stm
+Check if STM is available by running `stm list`. If the command fails, STM is not installed.
 
 ## Pre-Execution Checks
 
@@ -52,7 +52,7 @@ For each task, follow this cycle:
 
 **Available Agents:**
 
-!`claudekit list agents`
+Use available specialized agents for implementation (e.g., testing-expert, typescript-expert, react-expert).
 
 #### Step 1: Implement
 

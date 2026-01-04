@@ -1,7 +1,7 @@
 ---
-name: decompose
+name: spec:decompose
 description: Break down a validated specification into actionable implementation tasks
-allowed-tools: Read, Task, Write, TodoWrite, Bash(mkdir:*), Bash(cat:*), Bash(grep:*), Bash(echo:*), Bash(basename:*), Bash(date:*), Bash(claudekit:status stm), Bash(stm:*)
+allowed-tools: Read, Task, Write, TodoWrite, Bash(mkdir:*), Bash(cat:*), Bash(grep:*), Bash(echo:*), Bash(basename:*), Bash(date:*), Bash(stm:*)
 argument-hint: "<path-to-spec-file>"
 ---
 
@@ -18,7 +18,7 @@ This command takes a validated specification and breaks it down into:
 3. Testing and validation requirements
 4. Documentation needs
 
-!claudekit status stm
+Check if STM is available by running `stm list`. If the command fails, STM is not installed.
 
 ## CRITICAL: Content Preservation Requirements
 

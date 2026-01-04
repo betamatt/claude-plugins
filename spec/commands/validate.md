@@ -1,5 +1,5 @@
 ---
-name: validate
+name: spec:validate
 description: Analyzes a specification document to determine if it has enough detail for autonomous implementation
 allowed-tools: Task, Read, Grep
 argument-hint: "<path-to-spec-file>"
@@ -18,7 +18,6 @@ This command will analyze the provided specification document to determine if it
 When analyzing specifications that involve specific technical domains:
 
 - **Use specialized subagents** when analysis involves specific domains (TypeScript, React, testing, databases, etc.)
-- Run `claudekit list agents` to see available specialized experts
 - Match specification domains to expert knowledge for thorough validation
 - Use general-purpose approach only when no specialized expert fits
 

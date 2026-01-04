@@ -1,7 +1,7 @@
 ---
-name: implement
+name: spec:implement
 description: End-to-end spec implementation with review loops - validates, decomposes, and executes sequentially
-allowed-tools: Task, Read, Grep, Glob, Bash(stm:*), Bash(claudekit:*), Bash(git:*), Bash(jq:*), Bash(gh:*)
+allowed-tools: Task, Read, Grep, Glob, Bash(stm:*), Bash(git:*), Bash(jq:*), Bash(gh:*)
 argument-hint: "<path-to-spec-file> [--pr]"
 ---
 
@@ -58,7 +58,7 @@ Ask the user if they want help refining the spec. If yes, work with them to addr
 
 ## Phase 2: Decompose into Tasks (Idempotent)
 
-!claudekit status stm
+Check if STM is available by running `stm list`. If the command fails, STM is not installed.
 
 Check STM status and initialize if needed:
 
