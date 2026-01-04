@@ -32,6 +32,13 @@
       "version": "1.0.0",
       "description": "Specification-driven development workflow with creation, validation, decomposition, execution, and automated review-fix loops.",
       "keywords": ["specs", "specifications", "workflow", "planning", "implementation", "task-management", "stm", "code-review", "automation"]
+    },
+    {
+      "name": "repo-mapper",
+      "source": "./repo-mapper",
+      "version": "1.0.0",
+      "description": "AI-optimized repository mapping using Tree-sitter parsing and PageRank prioritization for intelligent codebase context.",
+      "keywords": ["repo-map", "codebase", "tree-sitter", "pagerank", "context", "mcp"]
     }
   ]
 }

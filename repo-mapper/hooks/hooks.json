@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if RepoMapper is installed by looking for '.repo-mapper/RepoMapper/repomap_server.py'. If installed, read '.claude/repo-mapper.local.md' for configuration (default auto_map: true). If auto_map is enabled, silently generate a brief repository map using: .repo-mapper/venv/bin/python .repo-mapper/RepoMapper/repomap.py --map-tokens 4096 . Use the map for internal context but DO NOT display it to the user unless they ask. If RepoMapper is not installed, stay completely silent about it."
+          }
+        ]
+      }
+    ]
+  }
+}
