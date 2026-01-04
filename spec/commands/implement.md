@@ -39,17 +39,24 @@ Run validation by reading and analyzing the spec file:
 **If validation fails:**
 
 ```
-STOP - Specification not ready for implementation
+## Specification Not Ready
 
 Missing sections: [list]
 Critical gaps: [list]
 
-Run /spec:validate for detailed feedback, then update the spec.
+Would you like me to help refine the spec? I can:
+1. Add missing sections with suggested content
+2. Clarify ambiguous requirements
+3. Fill in technical details
+
+Or run /spec:validate for detailed feedback.
 ```
+
+Ask the user if they want help refining the spec. If yes, work with them to address gaps, then re-validate.
 
 **If validation passes:** Continue to Phase 2.
 
-## Phase 2: Decompose into Tasks
+## Phase 2: Decompose into Tasks (Idempotent)
 
 !claudekit status stm
 
@@ -59,6 +66,19 @@ Check STM status and initialize if needed:
 - If "Available and initialized" -> Ready to use
 - If "Not installed" -> Will use TodoWrite fallback
 
+**Check for existing tasks first** (enables resume after session termination):
+
+```bash
+# Check if tasks already exist for this spec
+stm list --pretty
+```
+
+**If tasks already exist:**
+- Skip decomposition
+- Report: "Found existing tasks from previous run. Resuming execution."
+- Continue to Phase 3
+
+**If no tasks exist:**
 Create task breakdown:
 
 1. Read the spec to identify components
