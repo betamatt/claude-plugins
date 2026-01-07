@@ -43,27 +43,33 @@ Read the full task details including:
 - Technical implementation details
 - Validation/acceptance criteria
 
-### Step 2: Implement
+### Step 2: Implement using TDD Red/Green Cycles
 
-Based on the task details:
-1. Read existing code to understand patterns and conventions
-2. Implement the component following project style
-3. Add appropriate error handling
-4. Follow YAGNI - implement only what's specified
+For each requirement in the task:
 
-### Step 3: Write Tests
+**RED** - Write a failing test first:
+1. Create test that describes expected behavior
+2. Run tests - confirm the test fails with clear error
+3. The failing test documents what needs to be implemented
 
-1. Create tests that cover the acceptance criteria
-2. Include edge cases from the validation requirements
-3. Aim for meaningful coverage, not just line coverage
-4. Run tests to verify they pass
+**GREEN** - Write minimal code to pass:
+1. Implement only what's needed to make the test pass
+2. Run tests - confirm they pass
+3. Follow existing code patterns and conventions
+
+**REFACTOR** - Clean up while green:
+1. Improve code structure if needed
+2. Run tests - confirm they still pass
+3. Follow YAGNI - don't add what isn't tested
+
+Repeat for each requirement until all acceptance criteria are covered.
 
 ```bash
-# Run appropriate test command for the project
+# Run tests after each cycle
 npm test  # or go test, pytest, etc.
 ```
 
-### Step 4: Code Review (Max 3 Iterations)
+### Step 3: Code Review (Max 3 Iterations)
 
 Launch code review and fix loop:
 
@@ -96,7 +102,7 @@ if iteration >= 3 and still has CRITICAL/IMPORTANT:
   ESCALATE to user - don't mark task done
 ```
 
-### Step 5: Update STM Status
+### Step 4: Update STM Status
 
 After successful completion:
 
@@ -110,7 +116,7 @@ If blocked or escalating:
 stm update [task-id] --status blocked --notes "[Description of blocking issue]"
 ```
 
-### Step 6: Commit Changes
+### Step 5: Commit Changes
 
 Create an atomic commit for this task:
 

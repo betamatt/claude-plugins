@@ -12,9 +12,10 @@ Implement the specification at: $ARGUMENTS
 This command orchestrates the complete spec-to-code workflow:
 
 1. Validate the specification
-2. Decompose into tasks
-3. Execute each task with review-fix loops
-4. Optionally create a PR
+2. Readiness check - clarify ambiguities, confirm understanding
+3. Decompose into tasks
+4. Execute each task with review-fix loops
+5. Optionally create a PR
 
 ## Parse Arguments
 
@@ -56,7 +57,64 @@ Ask the user if they want help refining the spec. If yes, work with them to addr
 
 **If validation passes:** Continue to Phase 2.
 
-## Phase 2: Decompose into Tasks (Idempotent)
+## Phase 2: Readiness Check
+
+Before decomposing, ensure the spec is clear enough for autonomous implementation.
+
+### Analyze for Ambiguities
+
+Review the spec and identify:
+
+1. **Ambiguous requirements** - vague language, multiple interpretations
+2. **Missing details** - error handling, edge cases, defaults not specified
+3. **Technical decisions needed** - library choices, patterns, approaches
+4. **Dependencies on user context** - existing code patterns, preferences, constraints
+
+### Ask Clarifying Questions
+
+If any ambiguities or gaps are found:
+
+```
+## Before I Begin Implementation
+
+I've reviewed the spec and have some questions to ensure I implement this correctly:
+
+### Questions
+1. [Question about ambiguous requirement]
+2. [Question about missing detail]
+3. [Question about technical choice]
+
+### Assumptions I'll Make (unless you correct me)
+- [Assumption 1]
+- [Assumption 2]
+
+### Additional Context Needed
+- [Any files, examples, or information that would help]
+
+Please answer these questions, or let me know if you'd like to proceed with my assumptions.
+```
+
+**Wait for user response before continuing.**
+
+### Confirm Readiness
+
+Once questions are answered:
+
+```
+## Ready to Implement
+
+I have enough context to proceed. Here's my understanding:
+
+- [Summary of key requirements]
+- [Technical approach]
+- [Any constraints or preferences noted]
+
+Shall I proceed with decomposition and implementation?
+```
+
+**Wait for explicit user confirmation before continuing to Phase 3.**
+
+## Phase 3: Decompose into Tasks (Idempotent)
 
 Check if STM is available by running `stm list`. If the command fails, STM is not installed.
 
@@ -76,7 +134,7 @@ stm list --pretty
 **If tasks already exist:**
 - Skip decomposition
 - Report: "Found existing tasks from previous run. Resuming execution."
-- Continue to Phase 3
+- Continue to Phase 4
 
 **If no tasks exist:**
 Create task breakdown:
@@ -93,9 +151,9 @@ Create task breakdown:
 stm list --pretty
 ```
 
-## Phase 3: Execute Tasks Sequentially
+## Phase 4: Execute Tasks Sequentially
 
-For each pending task, use the task-executor agent:
+For each pending task, select the most appropriate expert agent and execute:
 
 ```
 # Get pending tasks
@@ -106,42 +164,68 @@ For each task in order:
   # Mark as in-progress
   stm update [task-id] --status in-progress
 
-  # Execute using task-executor agent
+  # Analyze task to select best agent type
+  # Read task details: stm show [task-id]
+  # Based on technologies, file types, and domain:
+  #   - TypeScript/JavaScript → typescript-expert or nodejs-expert
+  #   - React/Next.js → react-expert
+  #   - PostgreSQL/database → postgres-expert or database-expert
+  #   - Docker/infrastructure → docker-expert or devops-expert
+  #   - GitHub Actions/CI → github-actions-expert
+  #   - Generic/mixed → task-executor
+
+  # Execute using selected agent
   Task tool:
   - description: "Execute [task-id]: [task-title]"
-  - subagent_type: task-executor
+  - subagent_type: [selected-expert-agent]
   - prompt: |
-      Execute this task from the spec implementation.
+      Execute this task from a spec implementation.
 
       Task ID: [task-id]
 
-      Run `stm show [task-id]` to get full details.
+      Run `stm show [task-id]` to get full task details including requirements
+      and acceptance criteria.
 
-      Follow the complete cycle:
-      1. Implement based on task details
-      2. Write tests
-      3. Run review-fix loop (max 3 iterations)
-      4. Update STM status when done
-      5. Create atomic commit
+      Follow TDD red/green cycles:
+
+      1. **RED**: Write failing test(s) for the first requirement
+         - Test should fail with clear error showing missing functionality
+         - Run tests to confirm they fail
+
+      2. **GREEN**: Write minimal code to make test(s) pass
+         - Only implement what's needed to pass the current test
+         - Run tests to confirm they pass
+
+      3. **REFACTOR**: Clean up if needed while keeping tests green
+
+      4. Repeat steps 1-3 for each requirement in the task
+
+      5. Run code review (use code-review-expert agent), fix CRITICAL/IMPORTANT issues (max 3 iterations)
+
+      6. Update STM when done: `stm update [task-id] --status done`
+
+      7. Create atomic commit: `git commit -m "[task-id]: [description]"`
+
+      If blocked after 3 review iterations, update STM to blocked and escalate.
 
       Report back with:
-      - What was implemented
-      - Test results
+      - TDD cycles completed (which tests drove which implementation)
+      - Final test results
       - Review outcome
       - Any issues encountered
 
   # Check result
-  If task-executor reports success:
+  If agent reports success:
     Continue to next task
 
-  If task-executor reports escalation:
+  If agent reports escalation:
     STOP and report to user:
     - Which task is blocked
     - What issues remain
     - Request manual intervention
 ```
 
-## Phase 4: Completion
+## Phase 5: Completion
 
 When all tasks are done:
 
