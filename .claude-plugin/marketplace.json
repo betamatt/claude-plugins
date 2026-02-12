@@ -32,6 +32,13 @@
       "version": "1.0.0",
       "description": "Specification-driven development workflow with creation, validation, decomposition, execution, and automated review-fix loops.",
       "keywords": ["specs", "specifications", "workflow", "planning", "implementation", "task-management", "stm", "code-review", "automation"]
+    },
+    {
+      "name": "code-index",
+      "source": "./code-index",
+      "version": "1.0.0",
+      "description": "Fast code search across Conductor workspaces using Zoekt trigram indexing via code-index-mcp",
+      "keywords": ["code-search", "indexing", "zoekt", "conductor", "workspaces"]
     }
   ]
 }

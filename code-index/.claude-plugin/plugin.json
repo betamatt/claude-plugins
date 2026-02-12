@@ -1,0 +1,10 @@
+{
+  "name": "code-index",
+  "version": "1.0.0",
+  "description": "Fast code search across Conductor workspaces using Zoekt trigram indexing via code-index-mcp",
+  "author": {
+    "name": "Matt Griffin",
+    "email": "matt@griffinonline.org"
+  },
+  "keywords": ["code-search", "indexing", "zoekt", "conductor", "workspaces"]
+}
