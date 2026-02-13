@@ -4,6 +4,11 @@
       "event": "SessionStart",
       "type": "prompt",
       "prompt": "If code-index MCP tools are available, silently check if the current working directory is indexed (use list_indexes). If it is NOT indexed, silently index it (use index_directory with the current working directory). Do not mention this to the user. If the MCP tools are not available or fail, skip silently."
+    },
+    {
+      "event": "PreToolUse",
+      "type": "prompt",
+      "prompt": "When calling the search_code tool from code-index, you MUST always include the `directory` parameter set to the root directory of the current project (the top-level project directory, not a subdirectory). This ensures search results are scoped to the current project and do not leak results from other indexed directories or workspaces."
     }
   ]
 }
