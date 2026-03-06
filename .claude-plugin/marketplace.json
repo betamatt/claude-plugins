@@ -43,7 +43,7 @@
     {
       "name": "no-ai-attribution",
       "source": "./no-ai-attribution",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Blocks AI self-attribution in git commits (Co-Authored-By lines and 'Generated with' messages)",
       "keywords": ["git", "commits", "attribution", "co-authored-by"]
     }
