@@ -63,13 +63,18 @@ Skill content with examples and patterns...
 ### Hooks (hooks/hooks.json)
 ```json
 {
-  "hooks": [
-    {
-      "event": "SessionStart|PreToolUse|PostToolUse|Stop",
-      "type": "prompt",
-      "prompt": "Instructions for the hook"
-    }
-  ]
+  "hooks": {
+    "SessionStart|PreToolUse|PostToolUse|Stop|SubagentStop|Notification": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Instructions for the hook"
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
