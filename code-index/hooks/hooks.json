@@ -12,10 +12,11 @@
     ],
     "PreToolUse": [
       {
+        "matcher": "search_code",
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "When calling the search_code tool from code-index, you MUST always include the `directory` parameter set to the root directory of the current project (the top-level project directory, not a subdirectory). This ensures search results are scoped to the current project and do not leak results from other indexed directories or workspaces."
+            "prompt": "If the `directory` parameter is not set, default it to the current working directory. This ensures search results are scoped to the current project."
           }
         ]
       }
