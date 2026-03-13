@@ -1,0 +1,10 @@
+{
+  "name": "showboat",
+  "version": "1.0.0",
+  "description": "Create executable Markdown demos using showboat CLI. Capture real command output to produce reproducible proof-of-work documents.",
+  "author": {
+    "name": "Matt Griffin",
+    "email": "matt@griffinonline.org"
+  },
+  "keywords": ["demo", "documentation", "showboat", "verification", "markdown"]
+}

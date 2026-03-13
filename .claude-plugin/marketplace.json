@@ -46,6 +46,13 @@
       "version": "1.0.1",
       "description": "Blocks AI self-attribution in git commits (Co-Authored-By lines and 'Generated with' messages)",
       "keywords": ["git", "commits", "attribution", "co-authored-by"]
+    },
+    {
+      "name": "showboat",
+      "source": "./showboat",
+      "version": "1.0.0",
+      "description": "Create executable Markdown demos using showboat CLI. Capture real command output to produce reproducible proof-of-work documents.",
+      "keywords": ["demo", "documentation", "showboat", "verification", "markdown"]
     }
   ]
 }
